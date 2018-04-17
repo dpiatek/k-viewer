@@ -14,6 +14,7 @@ class App extends Component {
 
     this.handleTitleFilter = this.handleTitleFilter.bind(this);
     this.handleSortLikes = this.handleSortLikes.bind(this);
+    this.handleSortTitle = this.handleSortTitle.bind(this);
   }
 
   componentDidMount() {
@@ -45,7 +46,12 @@ class App extends Component {
     this.setState({ items });
   }
 
-  handleSortTitle() {}
+  handleSortTitle() {
+    const items = this.state.items.sort((a, b) =>
+      a.title.toLowerCase().localeCompare(b.title.toLowerCase())
+    );
+    this.setState({ items });
+  }
 
   render() {
     const { items, predicate } = this.state;
