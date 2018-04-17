@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import logo from './Logo.svg';
 
 import ListItem from "./ListItem";
 
@@ -26,6 +27,10 @@ class App extends Component {
 
     return (
       <div className="App">
+        <div className="Header">
+          <img className="Logo" src={logo} />
+          <h1>Latest 100 Shares</h1>
+        </div>
         <ol className="List">
           {items.map(item => <ListItem key={item.id} item={item} />)}
         </ol>

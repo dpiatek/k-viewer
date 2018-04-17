@@ -3,10 +3,11 @@
   width: 270px;
   height: 270px;
   vertical-align: top;
-  margin-right: 20px;
   padding: 20px;
-  border: 1px solid grey;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  box-shadow: 0px 0px 9px #666;
+  border-radius: 10px;
 }
 
 .ListItem:nth-child(3n) {

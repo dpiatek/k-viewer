@@ -1,6 +1,31 @@
+.App {
+  background-color: #F8FAFB;
+}
+
 .List {
   margin: 0 auto;
   padding: 0;
   list-style: none;
   max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.Header {
+  background-color: #368DF6;
+  padding: 20px 20px 60px;
+  margin-bottom: 40px;
+}
+
+.Header h1 {
+  margin: 60px auto 0;
+  text-align: center;
+  color: #F8FAFB;
+}
+
+.Logo {
+  width: 90px;
+  display: block;
+  margin: 0 auto;
 }
