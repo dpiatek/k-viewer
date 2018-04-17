@@ -15,6 +15,7 @@ class App extends Component {
     this.handleTitleFilter = this.handleTitleFilter.bind(this);
     this.handleSortLikes = this.handleSortLikes.bind(this);
     this.handleSortTitle = this.handleSortTitle.bind(this);
+    this.handleSortTime = this.handleSortTime.bind(this);
   }
 
   componentDidMount() {
@@ -39,7 +40,10 @@ class App extends Component {
     })
   }
 
-  handleSortTime() {}
+  handleSortTime() {
+    const items = this.state.items.sort((a, b) => new Date(b.date_created) - new Date(a.date_created));
+    this.setState({ items });
+  }
 
   handleSortLikes() {
     const items = this.state.items.sort((a, b) => b.likes.length - a.likes.length);
