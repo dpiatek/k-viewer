@@ -10,6 +10,7 @@ class ListItem extends Component {
         <div className="ListItem-ImageWrapper">
           <img src={item.cover_url} alt="" />
         </div>
+        {/* Todo: don't have the correct font, so no point in setting font weights/padding/size */}
         <div className="ListItem-Title">{item.title}</div>
         <div className="ListItem-Author">by {item.user.username}</div>
         <div>

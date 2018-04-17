@@ -8,8 +8,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      items: []
+      items: [],
+      predicate: ""
     }
+
+    this.handleTitleFilter = this.handleTitleFilter.bind(this);
+    this.handleSortLikes = this.handleSortLikes.bind(this);
   }
 
   componentDidMount() {
@@ -22,8 +26,32 @@ class App extends Component {
       });
   }
 
+  handleTitleFilter(event) {
+    const { value } = event.target;
+    this.setState({ predicate: value.trim() });
+  }
+
+  filterValues(predicate, items) {
+    return items.filter(item => {
+      // Todo: String.includes will need a polyfill in IE11 & friends
+      return item.title.includes(predicate);
+    })
+  }
+
+  handleSortTime() {}
+
+  handleSortLikes() {
+    const items = this.state.items.sort((a, b) => b.likes.length - a.likes.length);
+    this.setState({ items });
+  }
+
+  handleSortTitle() {}
+
   render() {
-    const { items } = this.state;
+    const { items, predicate } = this.state;
+    // This is unoptimized but will still work relatively well due to React render algo
+    const filteredValues = predicate !== "" ? this.filterValues(predicate, items) : items;
+    const showNoItemsFound = predicate !== "" && filteredValues.length === 0;
 
     return (
       <div className="App">
@@ -31,9 +59,22 @@ class App extends Component {
           <img className="Logo" src={logo} />
           <h1>Latest 100 Shares</h1>
         </div>
-        <ol className="List">
-          {items.map(item => <ListItem key={item.id} item={item} />)}
-        </ol>
+
+        <div className="Controls">
+          <input type="text" placeholder="Share title" onChange={this.handleTitleFilter} />
+
+          <div className="Controls-Sort">
+            <button type="button" onClick={this.handleSortTime}>Time</button>
+            <button type="button" onClick={this.handleSortLikes}>Likes</button>
+            <button type="button" onClick={this.handleSortTitle}>Title</button>
+          </div>
+        </div>
+
+        {showNoItemsFound
+          ? <div className="NoResults">No results found. Please try another search</div>
+          : <ol className="List">
+              {filteredValues.map(item => <ListItem key={item.id} item={item} />)}
+            </ol>}
       </div>
     );
   }

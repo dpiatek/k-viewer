@@ -2,16 +2,6 @@
   background-color: #F8FAFB;
 }
 
-.List {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-  max-width: 1000px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
 .Header {
   background-color: #368DF6;
   padding: 20px 20px 60px;
@@ -28,4 +18,45 @@
   width: 90px;
   display: block;
   margin: 0 auto;
+}
+
+.Controls {
+  max-width: 1000px;
+  margin: 40px auto;
+  display: flex;
+}
+
+.Controls input {
+  width: 230px;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #292F35;
+}
+
+.Controls input:focus,
+.Controls input:active {
+  outline: none;
+  border: 2px solid #368DF6;
+}
+
+.Controls-Sort {
+  margin-left: auto;
+}
+
+.List {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.NoResults {
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: center;
+  padding: 30px;
 }
