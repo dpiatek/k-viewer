@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './ListItem.css';
 
 class ListItem extends Component {
   render() {
@@ -7,7 +7,14 @@ class ListItem extends Component {
 
     return (
       <li className="ListItem">
-        {item.title}
+        <div className="ListItem-ImageWrapper">
+          <img src={item.cover_url} alt="" />
+        </div>
+        <div className="ListItem-Title">{item.title}</div>
+        <div className="ListItem-Author">by {item.user.username}</div>
+        <div>
+          <img className="ListItem-Likes" src="" alt="" />{item.likes.length} likes
+        </div>
       </li>
     );
   }

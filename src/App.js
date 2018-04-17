@@ -26,8 +26,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <ol>
-          {items.map(item => <ListItem item={item} />)}
+        <ol className="List">
+          {items.map(item => <ListItem key={item.id} item={item} />)}
         </ol>
       </div>
     );

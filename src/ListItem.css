@@ -1,0 +1,23 @@
+.ListItem {
+  display: inline-block;
+  width: 270px;
+  height: 270px;
+  vertical-align: top;
+  margin-right: 20px;
+  padding: 20px;
+  border: 1px solid grey;
+  margin-bottom: 20px;
+}
+
+.ListItem:nth-child(3n) {
+  margin-right: 0;
+}
+
+.ListItem-ImageWrapper {
+  overflow: hidden;
+  height: 210px;
+}
+
+.ListItem-ImageWrapper img {
+  max-width: 100%;
+}
